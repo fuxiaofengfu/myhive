@@ -1,4 +1,4 @@
-package myhive;
+package myhive.hivefunc;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
