@@ -8,6 +8,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.MRConfig;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.hadoop.util.Tool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +53,8 @@ public abstract class AbstractMRJob extends Configured implements Tool {
 		if(null == configuration){
 			configuration = new Configuration();
 		}
+		GenericOptionsParser parser = new GenericOptionsParser(configuration, args);
+		args = parser.getRemainingArgs();
 		String jobName = this.getJobTaskName(myJobConf.getJobname(),configuration);
 		Job job = Job.getInstance(configuration,jobName);
 		job.setJarByClass(myJobConf.getJarByClass());
