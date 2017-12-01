@@ -2,7 +2,7 @@
 	<!-- 数据库 start -->
 	<property>
 	  <name>javax.jdo.option.ConnectionURL</name>
-	  <value>jdbc:mysql://127.0.0.1:3306/hive_meta</value>
+	  <value>jdbc:mysql://127.0.0.1:3306/local_hive_meta</value>
 	  <description>mysql连接</description>
 	</property>
 
@@ -107,5 +107,9 @@
       <name>hive.exec.dynamic.partition.mode</name>
       <value>nonstrict</value>
     </property>
+	<property>
+		<name>hive.auto.convert.join</name>
+		<value>false</value>
+	</property>
 	<!-- 其它 end -->
 </configuration>

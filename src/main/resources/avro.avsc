@@ -1,0 +1,20 @@
+{
+"type":"record",
+"name":"runRecord",
+"namespace":"com.fuxiaofeng",
+"fields":[
+    {"name":"id",
+    "type":[
+        "string",
+        "null"
+    ],
+    "comment": "主键"
+    },
+    {"name":"pkname",
+      "type":[
+           "string",
+           "null"
+          ],
+      "comment": "包名"
+    }]
+}
