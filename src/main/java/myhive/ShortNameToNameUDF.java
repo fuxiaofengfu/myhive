@@ -26,8 +26,7 @@ public class ShortNameToNameUDF extends GenericUDF {
 	private  static  Map<String,String> provinceMap = new HashMap<>();
 
 	/**
-	 * Initialize this GenericUDF. This will be called once and only once per
-	 * GenericUDF instance.
+	 * 输入数据类型检查
 	 *
 	 * @param arguments The ObjectInspector for the arguments
 	 * @return The ObjectInspector for the return value
@@ -36,6 +35,7 @@ public class ShortNameToNameUDF extends GenericUDF {
 	@Override
 	public ObjectInspector initialize(ObjectInspector[] arguments) throws UDFArgumentException {
 
+		System.out.println("initialize");
 		ObjectInspector objectInspector = arguments[0];
 		ObjectInspector.Category category = objectInspector.getCategory();
 		if(category.equals(ObjectInspector.Category.PRIMITIVE)){
@@ -47,16 +47,12 @@ public class ShortNameToNameUDF extends GenericUDF {
 	Text text = new Text();
 
 	/**
-	 * Evaluate the GenericUDF with the arguments.
-	 *
-	 * @param arguments The arguments as DeferedObject, use DeferedObject.get() to get the
-	 *                  actual argument Object. The Objects can be inspected by the
-	 *                  ObjectInspectors passed in the initialize call.
-	 * @return The
+	 *  执行具体的计算逻辑
 	 */
 	@Override
 	public Object evaluate(DeferredObject[] arguments) throws HiveException {
 
+		System.out.println("evaluate");
 		DeferredObject deferredObject = arguments[0];
 		Object o = deferredObject.get();
 		//PrimitiveObjectInspectorConverter.StringConverter stringConverter = new PrimitiveObjectInspectorConverter.StringConverter(inspector);
